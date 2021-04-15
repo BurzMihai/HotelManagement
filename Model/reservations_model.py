@@ -1,7 +1,7 @@
 from sqlalchemy.orm import sessionmaker
 
 from Domain.reservation import Reservation
-from View.utils import my_session, engine
+from View.utils import engine
 
 
 class ClientsModel:
