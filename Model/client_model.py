@@ -22,7 +22,7 @@ class ClientsModel:
         )
         self.__my_session.commit()
 
-    def update_client(self, client_id, first_name=None, last_name=None, email=None):
+    def update_client(self, client_id, first_name, last_name, email):
         my_client = self.__my_session.query(Client).filter_by(client_id=client_id).first()
         if my_client:
             self.__my_session.query(
@@ -36,7 +36,7 @@ class ClientsModel:
             })
             self.__my_session.commit()
 
-    def delete_client(self):
+    def delete_client(self, client_id):
         self.__my_session.query(Client).filter_by(client_id=client_id).delete()
         self.__my_session.commit()
 
