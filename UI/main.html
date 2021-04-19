@@ -3,12 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 </head>
 <body>
 <div id="FAQ"></div>
 <div id="location"></div>
 <div id="photos"></div>
-<div id="contact"></div>
+<div id="contact">
+    <div class="container">
+  <form action="action_page.php">
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name...">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name...">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="e-mail">E-mail</label>
+    <input type="text" id="e-mail" name="e-mail" placeholder="Your e-mail...">
+
+
+      <label for="phone">Phone number</label>
+    <input type="text" id="phone" name="phone" placeholder="Your phone number...">
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write the problem here..." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
+</div>
+</div>
 <div id="reviews"></div>
 <div id="room_types"></div>
 </body>
