@@ -1,3 +1,5 @@
+from sqlalchemy.sql.functions import current_date
+
 from Domain.client import Client
 from Domain.room import Room
 from View.utils import Base
@@ -6,10 +8,10 @@ from sqlalchemy import Column, Integer, Date, ForeignKey
 
 class Reservation(Base):
     __tablename__ = 'reservations'
-    reservations_id = Column(Integer, primary_key=True)
+    reservations_id = Column(Integer, primary_key=True, autoincrement=True)
     client_id = Column(Integer, ForeignKey(Client.client_id), nullable=False)
     room_number = Column(Integer, ForeignKey(Room.room_number), nullable=False)
-    start_date = Column(Date, nullable=False)
+    start_date = Column(Date, nullable=False, default=current_date())
     end_date = Column(Date, nullable=False)
 
     def __repr__(self):
