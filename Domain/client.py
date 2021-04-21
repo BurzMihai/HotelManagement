@@ -10,5 +10,14 @@ class Client(Base):
     last_name = Column(String, nullable=False)
     email = Column(String, nullable=False)
 
+    def __str__(self):
+        return (f'client_id: {self.client_id}\n'
+                f'first_name: {self.first_name}\n'
+                f'last_name: {self.last_name},\n'
+                f'email: {self.email}')
+
     def __repr__(self):
-        return f' {self.client_id}, {self.first_name}, {self.last_name}, {self.email}'
+        return (f'client_id: {self.client_id}\n'
+                f'first_name: {self.first_name}\n'
+                f'last_name: {self.last_name},\n'
+                f'email: {self.email}')

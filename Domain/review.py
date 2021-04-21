@@ -9,5 +9,14 @@ class Review(Base):
     review_content = Column(Text, nullable=False)
     stars = Column(Float, nullable=False)
 
+    def __str__(self):
+        return (f'review_id: {self.review_id}\n'
+                f'client_first_name: {self.client_first_name}\n'
+                f'review_content: {self.review_content}\n'
+                f'stars: {self.stars}')
+
     def __repr__(self):
-        return f'{self.review_id, self.review_content, self.client_first_name, self.stars}'
+        return (f'review_id: {self.review_id}\n'
+                f'client_first_name: {self.client_first_name}\n'
+                f'review_content: {self.review_content}\n'
+                f'stars: {self.stars}')
