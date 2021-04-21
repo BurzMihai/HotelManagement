@@ -14,5 +14,16 @@ class Reservation(Base):
     start_date = Column(Date, nullable=False, default=current_date())
     end_date = Column(Date, nullable=False)
 
+    def __str__(self):
+        return (f'reservation_id: {self.reservations_id}\n'
+                f'client_id: {self.client_id}\n'
+                f'room_number: {self.room_number}\n'
+                f'start_date: {self.start_date}\n'
+                f'end_date: {self.end_date}')
+
     def __repr__(self):
-        return f' {self.reservations_id}, {self.client_id}, {self.room_number}'
+        return (f'reservation_id: {self.reservations_id}\n'
+                f'client_id: {self.client_id}\n'
+                f'room_number: {self.room_number}\n'
+                f'start_date: {self.start_date}\n'
+                f'end_date: {self.end_date}')
