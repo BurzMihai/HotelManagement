@@ -4,12 +4,12 @@ from View.utils import engine
 
 
 class ClientsModel:
-    def __init__(self):
+    def __init__(self, engine):
         self.__engine = engine
         self.__my_session = sessionmaker(bind=engine)()
 
     def read_client(self):
-        self.__my_session.query(Client).all()
+        return self.__my_session.query(Client).all()
 
     def create_client(self, client_id, first_name, last_name, email):
         self.__my_session.add(
@@ -47,3 +47,5 @@ class ClientsModel:
     def id_exists(self, client_id):
         my_client = self.__my_session.query(Client).filter_by(client_id=client_id).first()
         return True if my_client else False
+
+

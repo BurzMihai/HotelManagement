@@ -4,7 +4,7 @@ from View.utils import engine
 
 
 class RoomModel:
-    def __init__(self):
+    def __init__(self, engine):
         self.__my_session = sessionmaker(bind=engine)()
         self.__engine = engine
 
@@ -49,3 +49,5 @@ class RoomModel:
     def room_exists(self, room_number):
         my_room = self.__my_session.query(Room).filter_by(room_number=room_number).first()
         return True if my_room else False
+
+
