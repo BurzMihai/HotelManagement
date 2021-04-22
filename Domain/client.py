@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, create_engine
 
+from Model.room_model import RoomModel
 from View.utils import Base
 
 
@@ -21,3 +22,11 @@ class Client(Base):
                 f'first_name: {self.first_name}\n'
                 f'last_name: {self.last_name},\n'
                 f'email: {self.email}')
+
+    def return_client_as_dict(self):
+        return {'client_id': self.client_id,
+                'first_name': self.first_name,
+                'last_name': self.last_name,
+                'email': self.email}
+
+
