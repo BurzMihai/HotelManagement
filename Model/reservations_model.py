@@ -48,3 +48,7 @@ class ClientsModel:
     def reservation_exists(self, reservations_id):
         my_reservation = self.__my_session.query(Reservation).filter_by(reservations_id=reservations_id).first()
         return True if my_reservation else False
+
+    def get_latest_reservation_if(self):
+        my_reservation = self.__my_session.query(Reservation).order_by(Reservation.reservation_id.desc()).first()
+        return my_reservation.reservation_id
