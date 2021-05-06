@@ -25,6 +25,27 @@ def get_all_clients():
     return client_json
 
 
+@app.route('/add_client', methods=['POST'])
+@cross_origin()
+def add_client():
+    data = request.get_json()
+    print(data)
+    client_model.create_client(
+        client_id=data['client_id'],
+        first_name=data['first_name'],
+        last_name=data['last_name'],
+        email=data['email'],
+    )
+
+    return "200"
+
+
+@app.route('/top5reviews')
+@cross_origin()
+def top5reviews():
+    pass
+
+
 if __name__ == '__main__':
     engine = create_engine('mysql+pymysql://root:@127.0.0.1:3305/hotel', echo=False)
     client_model = ClientsModel(engine=engine)
