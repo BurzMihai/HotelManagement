@@ -3,8 +3,9 @@ from flask_cors import CORS, cross_origin
 from sqlalchemy import create_engine
 
 from Domain import client
-from Model import client_model
+from Model import client_model, reservations_model
 from Model.client_model import ClientsModel
+from Model.reservations_model import ReservationsModel
 from Model.room_model import RoomModel
 
 app = Flask('my_hotel_api')
@@ -40,6 +41,22 @@ def add_client():
     return "200"
 
 
+@app.route('/add_reservation', methods=['POST'])
+@cross_origin()
+def add_client():
+    data = request.get_json()
+    print(data)
+    reservations_model.create_reservation(
+        reservations_id=data['reservations_id'],
+        client_id=data['client_id'],
+        room_number=data['room_number'],
+        start_date=data['start_date'],
+        end_date=data['end_date']
+    )
+
+    return "200"
+
+
 @app.route('/top5reviews')
 @cross_origin()
 def top5reviews():
@@ -50,4 +67,5 @@ if __name__ == '__main__':
     engine = create_engine('mysql+pymysql://root:@127.0.0.1:3305/hotel', echo=False)
     client_model = ClientsModel(engine=engine)
     room_model = RoomModel(engine=engine)
+    reservations_model = ReservationsModel(engine=engine)
     app.run(debug=True)

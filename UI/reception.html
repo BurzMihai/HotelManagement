@@ -2,14 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Reception</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="my_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./Scripts/reception_scripts.js"></script>
 </head>
 <body>
-<div id="room_availability"></div>
-<div id="clean-up assignation"></div>
-<div id="daily_checkouts"></div>
-<div id="daily_checkins"></div>
-<div id="client_add"></div>
-<div id="room_reservation"></div>
+
+    <div id="room_availability">
+    </div>
+
+    <div id="cleanup_assignation">
+
+    </div>
+
+    <div id="daily_checkins">
+        <div id="daily_checkins_content"></div>
+        <script> get_daily_checkins() </script>
+    </div>
+
+    <br>
+    <br>
+
+    <div id="daily_checkouts">
+        <div id="daily_checkouts_content"></div>
+        <script> get_daily_checkouts() </script>
+    </div>
+
+    <div id="client_add">
+        <h3>Add Client:</h3>
+        <input type="text" id="client_id_input" value="Client ID..."/>
+        <input type="text" id="first_name_input" value="First Name..."/>
+        <input type="text" id="last_name_input" value="Last Name..."/>
+        <input type="text" id="email_input" value="Email..."/>
+        <input type=button value='Add client' onclick="add_client(document.getElementById('client_id_input').value,
+                            document.getElementById('first_name_input').value,
+                            document.getElementById('last_name_input').value,
+                            document.getElementById('email_input').value);"/>
+
+    </div>
+
+    <div id="room_reservation">
+        <h3>Add Reservation:</h3>
+        <input type="text" id="reservation_client_id_input" value="Client ID..."/>
+        <input type="text" id="room_number_input" value="Room Number..."/>
+        <input type="date" id="start_date_input"/>
+        <input type="date" id="end_date_input"/>
+        <input type=button value='Add reservation' onclick="add_reservation(document.getElementById('reservation_client_id_input').value,
+                            document.getElementById('room_number_input').value,
+                            document.getElementById('start_date_input').value,
+                            document.getElementById('end_date_input').value);"/>
+    </div>
+
 </body>
 </html>
