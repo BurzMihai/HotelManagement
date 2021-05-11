@@ -4,8 +4,8 @@ from Domain.reservation import Reservation
 from View.utils import engine
 
 
-class ClientsModel:
-    def __init__(self):
+class ReservationsModel:
+    def __init__(self, engine):
         self.__my_session = sessionmaker(bind=engine)()
         self.__engine = engine
 
